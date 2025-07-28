@@ -1,0 +1,146 @@
+{
+    "MB": {
+        "matches": [
+            {
+                "mien": "HNI001",
+                "device": "HNI001OLT02_7360",
+                "path_ma01": "<path_rra>/hni001mar01_traffic_in_1968.rrd",
+                "path_ma02": "<path_rra>/hni001mar02_traffic_in_2016.rrd"
+            },
+            {
+                "mien": "HNI001",
+                "device": "HNI001OLT03_7360",
+                "path_ma01": "<path_rra>/hni001mar01_traffic_in_1969.rrd",
+                "path_ma02": "<path_rra>/hni001mar02_traffic_in_4630.rrd"
+            },
+            {
+                "mien": "HNI100",
+                "device": "HNI100OLT02_7360",
+                "path_ma01": "<path_rra>/hni100mar01_traffic_in_4402.rrd",
+                "path_ma02": "<path_rra>/hni100mar02_traffic_in_4403.rrd"
+            },
+            {
+                "mien": "HNI101",
+                "device": "HNI101OLT02_7360",
+                "path_ma01": "<path_rra>/hni101mar01_asr9006_traffic_in_4606.rrd",
+                "path_ma02": "<path_rra>/hni101mar02_asr9006_traffic_in_4604.rrd"
+            },
+            {
+                "mien": "HNI102",
+                "device": "HNI102OLT02_7360",
+                "path_ma01": "<path_rra>/hni102mar01_traffic_in_4426.rrd",
+                "path_ma02": "<path_rra>/hni102mar02_traffic_in_4427.rrd"
+            },
+            {
+                "mien": "HNI102",
+                "device": "HNI102OLT03_7360",
+                "path_ma01": "<path_rra>/hni102mar01_traffic_in_4400.rrd",
+                "path_ma02": "<path_rra>/hni102mar02_traffic_in_4401.rrd"
+            },
+            {
+                "mien": "HNI103",
+                "device": "HNI103OLT02_7360",
+                "path_ma01": "<path_rra>/hni103mar01_traffic_in_4662.rrd",
+                "path_ma02": "<path_rra>/hni103mar02_traffic_in_4661.rrd"
+            },
+            {
+                "mien": "HNI120",
+                "device": "HNI120OLT01_7360",
+                "path_ma01": "<path_rra>/hni120srt01_traffic_in_2785.rrd",
+                "path_ma02": "<path_rra>/hni120srt02_traffic_in_2787.rrd"
+            }
+        ]
+    },
+    "MN": {
+        "matches": [
+            {
+                "mien": "HCM001",
+                "device": "HCM001OLT02_7360",
+                "path_ma01": "<path_rra>/hcm001mar01_traffic_in_2309.rrd",
+                "path_ma02": "<path_rra>/hcm001mar02_traffic_in_2349.rrd"
+            },
+            {
+                "mien": "HCM100",
+                "device": "HCM100OLT02_7360",
+                "path_ma01": "<path_rra>/hcm100mar01_traffic_in_1200.rrd",
+                "path_ma02": "<path_rra>/hcm100mar02_traffic_in_1204.rrd"
+            },
+            {
+                "mien": "HCM100",
+                "device": "HCM100OLT03_7360",
+                "path_ma01": "<path_rra>/hcm100mar01_traffic_in_4563.rrd",
+                "path_ma02": "<path_rra>/hcm100mar02_traffic_in_4601.rrd"
+            },
+            {
+                "mien": "HCM101",
+                "device": "HCM101OLT02_7360",
+                "path_ma01": "<path_rra>/hcm101mar01_traffic_in_4424.rrd",
+                "path_ma02": "<path_rra>/hcm101mar02_traffic_in_4422.rrd"
+            },
+            {
+                "mien": "HCM102",
+                "device": "HCM102OLT02_7360",
+                "path_ma01": "<path_rra>/hcm102mar01_traffic_in_4650.rrd",
+                "path_ma02": "<path_rra>/hcm102mar02_traffic_in_4652.rrd"
+            },
+            {
+                "mien": "HCM103",
+                "device": "HCM103OLT02_7360",
+                "path_ma01": "<path_rra>/hcm103mar01_traffic_in_4596.rrd",
+                "path_ma02": "<path_rra>/hcm103mar02_traffic_in_4599.rrd"
+            },
+            {
+                "mien": "HCM104",
+                "device": "HCM104OLT02_7360",
+                "path_ma01": "<path_rra>/hcm104mar01_traffic_in_5025.rrd",
+                "path_ma02": "<path_rra>/hcm104mar02_traffic_in_5028.rrd"
+            },
+            {
+                "mien": "HCM105",
+                "device": "HCM105OLT01_7360",
+                "path_ma01": "<path_rra>/hcm105srt03_traffic_in_4909.rrd",
+                "path_ma02": "<path_rra>/hcm105srt02_traffic_in_2395.rrd"
+            },
+            {
+                "mien": "HCM106",
+                "device": "HCM106OLT01_7360",
+                "path_ma01": "<path_rra>/hcm106srt03_traffic_in_4279.rrd",
+                "path_ma02": "<path_rra>/hcm106srt02_traffic_in_1090.rrd"
+            },
+            {
+                "mien": "HCM107",
+                "device": "HCM107OLT01_7342",
+                "path_ma01": "<path_rra>/hcm107srt01_traffic_in_2485.rrd",
+                "path_ma02": "<path_rra>/hcm107srt02_traffic_in_2487.rrd"
+            }
+        ]
+    },
+    "MT": {
+        "matches": [
+            {
+                "mien": "DNG001",
+                "device": "DNG001OLT01",
+                "path_ma01": "<path_rra>/dng001mar01_traffic_in_49.rrd",
+                "path_ma02": "<path_rra>/dng001mar02_traffic_in_59.rrd"
+            },
+            {
+                "mien": "DNG100",
+                "device": "DNG100OLT01",
+                "path_ma01": "<path_rra>/dng100mar01_traffic_in_536.rrd",
+                "path_ma02": "<path_rra>/dng100mar02_traffic_in_542.rrd"
+            },
+            {
+                "mien": "DNG101",
+                "device": "DNG101OLT01",
+                "path_ma01": "<path_rra>/dng101mar01_traffic_in_560.rrd",
+                "path_ma02": "<path_rra>/dng101mar02_traffic_in_567.rrd"
+            },
+            {
+                "mien": "DNG103",
+                "device": "DNG103OLT01",
+                "path_ma01": "<path_rra>/dng103srt01_traffic_in_5295.rrd",
+                "path_ma02": "<path_rra>/dng103srt02_traffic_in_580.rrd"
+            }
+        ]
+    }
+}
