@@ -78,7 +78,6 @@ def analyze_performance(json_file_path, time_start, time_end):
     stop_ts = int(datetime.combine(time_end, datetime.max.time()).timestamp())
     args = [(f[0], start_ts, stop_ts) for f in rrd_files]
 
-    # ⚠️ Use sequential processing in Streamlit to avoid multiprocessing issues
     results = [access_file(arg) for arg in args]
 
     ring_data = {}
@@ -134,7 +133,6 @@ def analyze_performance(json_file_path, time_start, time_end):
     return pd.DataFrame(summary)
 
 
-# ---------- Streamlit UI ----------
 st.set_page_config(page_title="Phân tích hiệu suất Ring", layout="wide")
 st.title("📡 Phân tích hiệu suất Ring từ RRD")
 

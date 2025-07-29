@@ -1,0 +1,216 @@
+{
+  "MB": {
+    "Ring1": [
+      {
+        "Device": "Ring1_HNI001_1",
+        "Type": "traffic_in",
+        "Burstable": 10,
+        "Commit": 10,
+        "rrd": "rra/hni001mcr01_traffic_in_10882.rrd"
+      },
+      {
+        "Device": "Ring1_HNI001_2",
+        "Type": "traffic_out",
+        "Burstable": 10,
+        "Commit": 10,
+        "rrd": "rra/hni001mcr02_traffic_in_10890.rrd"
+      }
+    ],
+    "Ring2": [
+      {
+        "Device": "Ring2_HNI101_1",
+        "Type": "traffic_in",
+        "Burstable": 10,
+        "Commit": 10,
+        "rrd": "rra/hni001mcr01_traffic_in_10261.rrd"
+      },
+      {
+        "Device": "Ring2_HNI101_2",
+        "Type": "traffic_out",
+        "Burstable": 10,
+        "Commit": 10,
+        "rrd": "rra/hni001mcr02_traffic_in_10265.rrd"
+      }
+    ],
+    "Ring3": [
+      {
+        "Device": "Ring3_HNI100-HNI103_1",
+        "Type": "traffic_in",
+        "Burstable": 10,
+        "Commit": 10,
+        "rrd": "rra/hni001mcr01_traffic_in_10884.rrd"
+      },
+      {
+        "Device": "Ring3_HNI100-HNI103_2",
+        "Type": "traffic_out",
+        "Burstable": 10,
+        "Commit": 10,
+        "rrd": "rra/hni001mcr02_traffic_in_10893.rrd"
+      }
+    ],
+    "Ring4": [
+      {
+        "Device": "Ring4_HNI102_1",
+        "Type": "traffic_in",
+        "Burstable": 10,
+        "Commit": 10,
+        "rrd": "rra/hni001mcr01_traffic_in_11971.rrd"
+      },
+      {
+        "Device": "Ring4_HNI102_2",
+        "Type": "traffic_out",
+        "Burstable": 10,
+        "Commit": 10,
+        "rrd": "rra/hni001mcr02_traffic_in_11972.rrd"
+      }
+    ]
+  },
+  "MN": {
+    "Ring1": [
+      {
+        "Device": "HCM001_1",
+        "Type": "traffic_in",
+        "Burstable": 20,
+        "Commit": 20,
+        "rrd": "rra/hcm001mcr01_traffic_in_10105.rrd"
+      },
+      {
+        "Device": "HCM001_2",
+        "Type": "traffic_out",
+        "Burstable": 20,
+        "Commit": 20,
+        "rrd": "rra/hcm001mcr02_traffic_in_10539.rrd"
+      }
+    ],
+    "Ring2": [
+      {
+        "Device": "HCM002_1",
+        "Type": "traffic_in",
+        "Burstable": 10,
+        "Commit": 10,
+        "rrd": "rra/hcm001mcr01_traffic_in_10125.rrd"
+      },
+      {
+        "Device": "HCM002_2",
+        "Type": "traffic_out",
+        "Burstable": 10,
+        "Commit": 10,
+        "rrd": "rra/hcm001mcr02_traffic_in_9732.rrd"
+      }
+    ],
+    "Ring3": [
+      {
+        "Device": "HCM100_1",
+        "Type": "traffic_in",
+        "Burstable": 20,
+        "Commit": 20,
+        "rrd": "rra/hcm001mcr01_traffic_in_10102.rrd"
+      },
+      {
+        "Device": "HCM100_2",
+        "Type": "traffic_out",
+        "Burstable": 20,
+        "Commit": 20,
+        "rrd": "rra/hcm-mc2_traffic_in_3898.rrd"
+      }
+    ],
+    "Ring4": [
+      {
+        "Device": "HCM101-HCM103_1",
+        "Type": "traffic_in",
+        "Burstable": 10,
+        "Commit": 10,
+        "rrd": "rra/hcm001mcr01_traffic_in_10103.rrd"
+      },
+      {
+        "Device": "HCM101-HCM103_2",
+        "Type": "traffic_out",
+        "Burstable": 10,
+        "Commit": 10,
+        "rrd": "rra/hcm-mc2_traffic_in_3958.rrd"
+      }
+    ],
+    "Ring5": [
+      {
+        "Device": "HCM102-HCM104_1",
+        "Type": "traffic_in",
+        "Burstable": 10,
+        "Commit": 10,
+        "rrd": "rra/hcm001mcr01_traffic_in_10104.rrd"
+      },
+      {
+        "Device": "HCM102-HCM104_2",
+        "Type": "traffic_out",
+        "Burstable": 10,
+        "Commit": 10,
+        "rrd": "rra/hcm-mc2_traffic_in_3899.rrd"
+      }
+    ]
+  },
+  "MT": {
+    "Ring1": [
+      {
+        "Device": "DNG001_1",
+        "Type": "traffic_in",
+        "Burstable": 10,
+        "Commit": 10,
+        "rrd": "rra/dng-mc1_traffic_in_4401.rrd"
+      },
+      {
+        "Device": "DNG001_2",
+        "Type": "traffic_out",
+        "Burstable": 10,
+        "Commit": 10,
+        "rrd": "rra/dng-mc2_traffic_in_3930.rrd"
+      }
+    ],
+    "Ring2": [
+      {
+        "Device": "DNG100_1",
+        "Type": "traffic_in",
+        "Burstable": 5,
+        "Commit": 5,
+        "rrd": "rra/dng-mc1_traffic_in_4403.rrd"
+      },
+      {
+        "Device": "DNG100_2",
+        "Type": "traffic_out",
+        "Burstable": 5,
+        "Commit": 5,
+        "rrd": "rra/dng-mc2_traffic_in_3938.rrd"
+      }
+    ],
+    "Ring3": [
+      {
+        "Device": "DNG101_1",
+        "Type": "traffic_in",
+        "Burstable": 5,
+        "Commit": 5,
+        "rrd": "rra/dng-mc1_traffic_in_4402.rrd"
+      },
+      {
+        "Device": "DNG101_2",
+        "Type": "traffic_out",
+        "Burstable": 5,
+        "Commit": 5,
+        "rrd": "rra/dng-mc2_traffic_in_3889.rrd"
+      }
+    ],
+    "Ring4": [
+      {
+        "Device": "KHA100-KHA102_1",
+        "Type": "traffic_in",
+        "Burstable": 5,
+        "Commit": 5,
+        "rrd": "rra/dng001mcr01_traffic_in_7927.rrd"
+      },
+      {
+        "Device": "KHA100-KHA102_2",
+        "Type": "traffic_out",
+        "Burstable": 5,
+        "Commit": 5,
+        "rrd": "rra/dng-mc2_traffic_in_3647.rrd"
+      }
+    ]
+  }
+}

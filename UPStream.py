@@ -8,14 +8,12 @@ import multiprocessing
 import argparse
 import os
 
-# === Cấu hình SSH & xử lý song song ===
 SSH_HOST = "172.28.131.72"
 SSH_PORT = 22
 SSH_USERNAME = "kienpt"
 SSH_PASSWORD = "l5#=;zXIa12'lt&%"
 NUM_PROCESSES = 4
 
-# === Đọc cấu hình JSON ===
 def read_json(json_path):
     with open(json_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
@@ -34,7 +32,6 @@ def read_json(json_path):
                 ))
     return rrd_info
 
-# === Kết nối SSH và lấy dữ liệu RRD ===
 def access_file(args):
     rra_file, time_start, time_stop = args
     ssh = paramiko.SSHClient()
@@ -50,7 +47,6 @@ def access_file(args):
     finally:
         ssh.close()
 
-# === Xử lý dữ liệu RRD (chuyển về DataFrame) ===
 def process_rrd_data(data):
     lines = data.splitlines()
     records = []
@@ -69,13 +65,11 @@ def process_rrd_data(data):
     df["traffic_out"] = df["traffic_out"] * 8 / 1e6 / 1024
     return df
 
-# === Lấy dữ liệu từ nhiều RRD cùng lúc ===
 def fetch_all_data(rrd_files, start_r, stop_r):
     args = [(f[0], start_r, stop_r) for f in rrd_files]
     with multiprocessing.Pool(NUM_PROCESSES) as pool:
         return pool.map(access_file, args)
 
-# === Tổng hợp dữ liệu theo thiết bị ===
 def aggregate_data(results, rrd_files):
     ring_data = {}
     for idx, (rrd_file, data) in enumerate(results):
@@ -93,7 +87,6 @@ def aggregate_data(results, rrd_files):
         }
     return ring_data
 
-# === Tính toán hiệu suất & thống kê ===
 def summarize(ring_data):
     summary = []
     for device, info in ring_data.items():
@@ -128,7 +121,6 @@ def summarize(ring_data):
         })
     return pd.DataFrame(summary)
 
-# === Hàm main điều phối chương trình ===
 def main(json_path, time_start, time_end):
     print("🚀 Bắt đầu phân tích...")
 
@@ -143,7 +135,6 @@ def main(json_path, time_start, time_end):
     print("\n✅ Phân tích hoàn tất. Kết quả tổng hợp:\n")
     print(df_sum.to_string(index=False))
 
-# === Xử lý đối số dòng lệnh ===
 if __name__ == "__main__":
     multiprocessing.freeze_support()
 
