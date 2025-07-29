@@ -1,0 +1,36 @@
+{
+  "MB": {
+    "HNI001": {
+      "SRT18-SRT01-SRT02-SRT03-SRT10": {
+        "MA1": [
+          {
+            "Type": "traffic_in",
+            "Burstable": 10,
+            "Commit": 10,
+            "rrd": "rra/hni001mar01_traffic_in_4616.rrd"
+          },
+          {
+            "Type": "traffic_out",
+            "Burstable": 10,
+            "Commit": 10,
+            "rrd": "rra/hni001mar01_traffic_in_4616.rrd"
+          }
+        ],
+        "MA2": [
+          {
+            "Type": "traffic_in",
+            "Burstable": 10,
+            "Commit": 10,
+            "rrd": "rra/hni001mar02_traffic_in_4433.rrd"
+          },
+          {
+            "Type": "traffic_out",
+            "Burstable": 10,
+            "Commit": 10,
+            "rrd": "rra/hni001mar02_traffic_in_4433.rrd"
+          }
+        ]
+      }
+    }
+  }
+}

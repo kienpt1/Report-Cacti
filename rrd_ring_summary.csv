@@ -1,0 +1,3 @@
+Location,CO,device_cr,Ring,95% In (Gbps),95% Out (Gbps),Max In (Gbps),Max Out (Gbps),SUM Max IN (Gbps),SUM Max OUT (Gbps),Capacity (Gbps),Hiệu suất In (%),Hiệu suất Out (%)
+MB,SRT18-SRT01-SRT02-SRT03-SRT10,,MA1,0.93,1.15,1.51,1.34,1.51,1.34,10,15.1,13.4
+MB,SRT18-SRT01-SRT02-SRT03-SRT10,,MA2,1.11,1.16,1.33,1.3,2.84,2.64,10,13.3,13.0

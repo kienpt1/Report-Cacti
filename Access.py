@@ -1,4 +1,3 @@
-import streamlit as st
 import pandas as pd
 import numpy as np
 import json
@@ -13,45 +12,54 @@ SSH_USERNAME = "kienpt"
 SSH_PASSWORD = "l5#=;zXIa12'lt&%"
 NUM_PROCESSES = 4
 
-
 def read_json(json_path):
     with open(json_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
+
     rrd_info = []
-    for key in ["MB", "MN", "MT"]:
-        domain = data.get(key, {})
-        for ring_name, ring_nodes in domain.items():
-            for node_name, devices in ring_nodes.items():
-                for entry in devices:
-                    if "rrd" in entry:
+
+    for region in data:
+        region_data = data[region]
+        for location, rings in region_data.items():
+            for ring_name, nodes in rings.items():
+                for node_name, entries in nodes.items():
+                    for entry in entries:
                         rrd_info.append((
-                            entry["rrd"].strip(),
-                            key,
-                            ring_name,
-                            node_name,
-                            entry.get("Device"),
-                            entry.get("Type"),
+                            entry.get("rrd", "").strip(),
+                            region,               # Location (MB/MN/MT)
+                            ring_name,            # CO
+                            node_name,            # device
+                            entry.get("Device"),  # device_cr (optional)
+                            entry.get("Type"),    # rrd_type
                             entry.get("Burstable", 0),
                             entry.get("Commit", 0)
                         ))
     return rrd_info
 
-
 def access_file(args):
-    rra_file, time_start, time_stop = args
+    rra_file, start_ts, stop_ts = args
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
     try:
         ssh.connect(SSH_HOST, SSH_PORT, SSH_USERNAME, SSH_PASSWORD)
-        cmd = f"rrdtool fetch /var/www/html/cacti/rra/{rra_file} AVERAGE --start {time_start} --end {time_stop}"
+        cmd = f"rrdtool fetch /var/www/html/cacti/{rra_file} AVERAGE --start {start_ts} --end {stop_ts}"
         _, stdout, stderr = ssh.exec_command(cmd)
         result = stdout.read().decode()
+        error = stderr.read().decode()
+
+        if error:
+            print(f"RRDTool Error for {rra_file}: {error}")
+            return rra_file, None
+
         return rra_file, result
+
     except Exception as e:
+        print(f"SSH Error for {rra_file}: {e}")
         return rra_file, None
+
     finally:
         ssh.close()
-
 
 def process_rrd_data(data):
     lines = data.splitlines()
@@ -70,7 +78,6 @@ def process_rrd_data(data):
     df["traffic_in"] = df["traffic_in"] * 8 / 1e6 / 1024
     df["traffic_out"] = df["traffic_out"] * 8 / 1e6 / 1024
     return df
-
 
 def analyze_performance(json_file_path, time_start, time_end):
     rrd_files = read_json(json_file_path)
@@ -98,6 +105,8 @@ def analyze_performance(json_file_path, time_start, time_end):
         }
 
     summary = []
+    co_traffic = {}
+
     for ring_name, info in ring_data.items():
         df = info["df"]
         commit = info["commit"]
@@ -116,6 +125,15 @@ def analyze_performance(json_file_path, time_start, time_end):
         max_in = values_in.max()
         max_out = values_out.max()
 
+        if pop not in co_traffic:
+            co_traffic[pop] = {
+                "sum_max_in": 0,
+                "sum_max_out": 0
+            }
+
+        co_traffic[pop]["sum_max_in"] += max_in
+        co_traffic[pop]["sum_max_out"] += max_out
+
         summary.append({
             "Location": location,
             "CO": pop,
@@ -125,43 +143,31 @@ def analyze_performance(json_file_path, time_start, time_end):
             "95% Out (Gbps)": round(p95_out, 2),
             "Max In (Gbps)": round(max_in, 2),
             "Max Out (Gbps)": round(max_out, 2),
+            "SUM Max IN (Gbps)": round(co_traffic[pop]["sum_max_in"], 2),
+            "SUM Max OUT (Gbps)": round(co_traffic[pop]["sum_max_out"], 2),
             "Capacity (Gbps)": commit,
             "Hiệu suất In (%)": round((max_in / commit) * 100, 1) if commit else 0,
             "Hiệu suất Out (%)": round((max_out / commit) * 100, 1) if commit else 0
         })
 
-    return pd.DataFrame(summary)
+    df_result = pd.DataFrame(summary)
+    return df_result
 
-
-st.set_page_config(page_title="Phân tích hiệu suất Ring", layout="wide")
-st.title("📡 Phân tích hiệu suất Ring từ RRD")
-
-uploaded_file = st.file_uploader("📁 Tải lên file JSON cấu hình", type=["json"])
-
-col1, col2 = st.columns(2)
-with col1:
-    start_date = st.date_input("📅 Ngày bắt đầu", value=datetime.now() - timedelta(days=7))
-with col2:
-    end_date = st.date_input("📅 Ngày kết thúc", value=datetime.now())
-
-json_path = None
-if uploaded_file:
-    json_path = f"/tmp/{uploaded_file.name}"
-    with open(json_path, "wb") as f:
-        f.write(uploaded_file.getbuffer())
-elif os.path.exists("BW_Access.json"):
+# MAIN
+if __name__ == "__main__":
     json_path = "BW_Access.json"
+    start_date = (datetime.now() - timedelta(days=7)).date()
+    end_date = datetime.now().date()
 
-if json_path and start_date <= end_date:
-    with st.spinner("🔄 Đang xử lý dữ liệu..."):
+    if os.path.exists(json_path) and start_date <= end_date:
+        print("🚀 Processing data...")
         df_summary = analyze_performance(json_path, start_date, end_date)
 
-    if not df_summary.empty:
-        st.success("✅ Phân tích hoàn tất!")
-        st.dataframe(df_summary, use_container_width=True)
-        csv = df_summary.to_csv(index=False).encode("utf-8")
-        st.download_button("📥 Tải kết quả CSV", data=csv, file_name="rrd_ring_summary.csv", mime="text/csv")
+        if not df_summary.empty:
+            print("✅ Analysis complete. Saving to rrd_ring_summary.csv")
+            df_summary.to_csv("rrd_ring_summary.csv", index=False)
+            print(df_summary)
+        else:
+            print("⚠️ No usable data found in RRD.")
     else:
-        st.warning("⚠️ Không có dữ liệu nào được xử lý.")
-else:
-    st.info("📌 Vui lòng tải lên file JSON hoặc đảm bảo BW_Access.json có tồn tại.")
+        print("❌ Invalid input: JSON file missing or date range incorrect.")
