@@ -1,0 +1,175 @@
+{
+  "HKG": {
+    "CMI_1": [
+      {
+        "Device": "CMI_1",
+        "Type": "traffic_in",
+        "Burstable": 300,
+        "Commit": 300,
+        "rrd": "/hk-gw-04_traffic_in_4916.rrd"
+      },
+      {
+        "Device": "CMI_1",
+        "Type": "traffic_out",
+        "Burstable": 300,
+        "Commit": 300,
+        "rrd": "/hk-gw-04_traffic_in_4916.rrd"
+      }
+    ],
+    "CMI_2": [
+      {
+        "Device": "CMI_2",
+        "Type": "traffic_in",
+        "Burstable": 450,
+        "Commit": 450,
+        "rrd": "/hk-gw-04_traffic_in_4917.rrd"
+      },
+      {
+        "Device": "CMI_2",
+        "Type": "traffic_out",
+        "Burstable": 450,
+        "Commit": 450,
+        "rrd": "/hk-gw-04_traffic_in_4917.rrd"
+      }
+    ],
+    "GCX": [
+      {
+        "Device": "GCX",
+        "Type": "traffic_in",
+        "Burstable": 1000,
+        "Commit": 1000,
+        "rrd": "/hkg-gway-04_traffic_in_3266.rrd"
+      }
+    ],
+    "NTT": [
+      {
+        "Device": "NTT",
+        "Type": "traffic_in",
+        "Burstable": 10000,
+        "Commit": 3300,
+        "rrd": "/hkg001igr03_traffic_in_13503.rrd"
+      }
+    ],
+    "PCCW": [
+      {
+        "Device": "PCCW",
+        "Type": "traffic_in",
+        "Burstable": 20000,
+        "Commit": 6000,
+        "rrd": "/hkg001igr04_traffic_in_10993.rrd"
+      }
+    ],
+    "PCCW-02": [
+      {
+        "Device": "PCCW-02",
+        "Type": "traffic_in",
+        "Burstable": 100000,
+        "Commit": 100000,
+        "rrd": "/hkg001igr04_traffic_in_13086.rrd"
+      }
+    ],
+    "PCCW-03": [
+      {
+        "Device": "PCCW-03",
+        "Type": "traffic_in",
+        "Burstable": 20000,
+        "Commit": 5000,
+        "rrd": "/hkg002igr01_traffic_in_13460.rrd"
+      }
+    ],
+    "Zenlayer": [
+      {
+        "Device": "Zenlayer",
+        "Type": "traffic_in",
+        "Burstable": 10000,
+        "Commit": 5000,
+        "rrd": "/hkg002igr01_traffic_in_10392.rrd"
+      }
+    ],
+    "HGC-01": [
+      {
+        "Device": "HGC-01",
+        "Type": "traffic_in",
+        "Burstable": 20000,
+        "Commit": 5000,
+        "rrd": "/hkg002igr02_traffic_in_11128.rrd"
+      }
+    ],
+    "HGC-02": [
+      {
+        "Device": "HGC-02",
+        "Type": "traffic_in",
+        "Burstable": 100000,
+        "Commit": 100000,
+        "rrd": "/hkg001igr03_traffic_in_12895.rrd"
+      }
+    ],
+    "LV3-HKG-AMS": [
+      {
+        "Device": "LV3-HKG-AMS",
+        "Type": "traffic_in",
+        "Burstable": 10000,
+        "Commit": 1000,
+        "rrd": "/hkg001igr03_traffic_in_11238.rrd"
+      }
+    ]
+  },
+  "SGP": {
+    "GCX": [
+      {
+        "Device": "GCX",
+        "Type": "traffic_in",
+        "Burstable": 2000,
+        "Commit": 2000,
+        "rrd": "/sgp001igr03_traffic_in_9899.rrd"
+      }
+    ],
+    "NTT": [
+      {
+        "Device": "NTT",
+        "Type": "traffic_in",
+        "Burstable": 10000,
+        "Commit": 1100,
+        "rrd": "/sgp001igr04_traffic_in_9456.rrd"
+      }
+    ],
+    "OBS": [
+      {
+        "Device": "OBS",
+        "Type": "traffic_in",
+        "Burstable": 10000,
+        "Commit": 1000,
+        "rrd": "/sgp001igr03_traffic_in_9038.rrd"
+      }
+    ],
+    "SINGTEL": [
+      {
+        "Device": "SINGTEL",
+        "Type": "traffic_in",
+        "Burstable": 10000,
+        "Commit": 1000,
+        "rrd": "/sgp001igr04_traffic_in_9900.rrd"
+      }
+    ],
+    "LV3-SGP-AMS": [
+      {
+        "Device": "LV3-SGP-AMS",
+        "Type": "traffic_in",
+        "Burstable": 10000,
+        "Commit": 4000,
+        "rrd": "/sgp001igr04_traffic_in_11239.rrd"
+      }
+    ]
+  },
+  "JPN": {
+    "GCX": [
+      {
+        "Device": "GCX",
+        "Type": "traffic_in",
+        "Burstable": 10000,
+        "Commit": 3000,
+        "rrd": "/dng001per01_traffic_in_9565.rrd"
+      }
+    ]
+  }
+}
