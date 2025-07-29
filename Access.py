@@ -17,25 +17,23 @@ def read_json(json_path):
         data = json.load(f)
 
     rrd_info = []
-
-    for region in data:
-        region_data = data[region]
-        for location, rings in region_data.items():
-            for ring_name, nodes in rings.items():
-                for node_name, entries in nodes.items():
+    for key in ["MB", "MN", "MT"]:
+        domain = data.get(key, {})
+        for device_cr, rings in domain.items():
+            for ring_name, ring_nodes in rings.items():
+                for node_name, entries in ring_nodes.items():
                     for entry in entries:
                         rrd_info.append((
                             entry.get("rrd", "").strip(),
-                            region,               # Location (MB/MN/MT)
-                            ring_name,            # CO
-                            node_name,            # device
-                            entry.get("Device"),  # device_cr (optional)
-                            entry.get("Type"),    # rrd_type
+                            key,                 # Location
+                            ring_name,           # CO
+                            node_name,           # Ring (device)
+                            device_cr,           # device_cr (e.g., HNI001)
+                            entry.get("Type"),
                             entry.get("Burstable", 0),
                             entry.get("Commit", 0)
                         ))
     return rrd_info
-
 def access_file(args):
     rra_file, start_ts, stop_ts = args
     ssh = paramiko.SSHClient()

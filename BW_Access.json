@@ -30,6 +30,68 @@
             "rrd": "rra/hni001mar02_traffic_in_4433.rrd"
           }
         ]
+      },
+      "SRT04-SRT09-SRT32-SRT33-SRT34-SRT35": {
+        "MA1": [
+          {
+            "Type": "traffic_in",
+            "Burstable": 10,
+            "Commit": 10,
+            "rrd": "rra/hni001mar01_traffic_in_4617.rrd"
+          },
+          {
+            "Type": "traffic_out",
+            "Burstable": 10,
+            "Commit": 10,
+            "rrd": "rra/hni001mar01_traffic_in_4617.rrd"
+          }
+        ],
+        "MA2": [
+          {
+            "Type": "traffic_in",
+            "Burstable": 10,
+            "Commit": 10,
+            "rrd": "rra/hni001mar02_traffic_in_4228.rrd"
+          },
+          {
+            "Type": "traffic_out",
+            "Burstable": 10,
+            "Commit": 10,
+            "rrd": "rra/hni001mar02_traffic_in_4228.rrd"
+          }
+        ]
+      }
+    },
+    "HNI100": {
+      "SRT05-SRT06": {
+        "MA1": [
+          {
+            "Type": "traffic_in",
+            "Burstable": 10,
+            "Commit": 10,
+            "rrd": "rra/hni100mar01_traffic_in_2083.rrd"
+          },
+          {
+            "Type": "traffic_out",
+            "Burstable": 10,
+            "Commit": 10,
+            "rrd": "rra/hni100mar01_traffic_in_2083.rrd"
+          }
+        ],
+        "MA2": [
+          {
+            "Type": "traffic_in",
+            "Burstable": 10,
+            "Commit": 10,
+            "rrd": "rra/hni100mar02_traffic_in_2102.rrd"
+          },
+          {
+            "Type": "traffic_out",
+            "Burstable": 10,
+            "Commit": 10,
+            "rrd": "rra/hni100mar02_traffic_in_2102.rrd"
+          }
+        ]
       }
     }
   }
